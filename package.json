@@ -1,0 +1,47 @@
+{
+  "name": "js_checkpoint2",
+  "version": "0.0.1",
+  "description": "",
+  "homepage": "https://github.com/{{ org }}/js_checkpoint2#readme",
+  "bugs": {
+    "url": "https://github.com/{{ org }}/js_checkpoint2/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/{{ org }}/js_checkpoint2.git"
+  },
+  "workspaces": [
+    "client",
+    "server",
+    "algo"
+  ],
+  "scripts": {
+    "algo:test:1": "npm run test:1 --workspace=algo",
+    "algo:test:2": "npm run test:2 --workspace=algo",
+    "algo:test:3": "npm run test:3 --workspace=algo",
+    "algo:test:4": "npm run test:4 --workspace=algo",
+    "algo:test": "npm run test --workspace=algo",
+    "build": "npm run build --workspaces --if-present",
+    "check": "biome check --error-on-warnings --no-errors-on-unmatched --staged . && npm run check-types --workspaces --if-present",
+    "check:fix": "biome check --write --error-on-warnings --no-errors-on-unmatched --staged .",
+    "clean": "node ./bin/clean",
+    "db:migrate": "npm run db:migrate --workspace=server",
+    "db:seed": "npm run db:seed --workspace=server",
+    "dev": "concurrently -c green,yellow -t \"HH:mm:ss\" -p \"{name} {time}\" \"npm:dev:*\"",
+    "dev:client": "npm run dev --workspace=client",
+    "dev:server": "npm run dev --workspace=server",
+    "prepare": "git config core.hooksPath .git-hooks || true",
+    "start": "npm run start --workspace=server",
+    "test": "npm run test --workspaces --if-present"
+  },
+  "keywords": [],
+  "author": "{{ org }}",
+  "license": "MIT",
+  "devDependencies": {
+    "@biomejs/biome": "1.9.4",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "concurrently": "^9.1.2",
+    "validate-branch-name": "^1.3.2"
+  }
+}
