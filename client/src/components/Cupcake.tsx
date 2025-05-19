@@ -1,7 +1,8 @@
 import "./Cupcake.css";
+import type { Cupcake } from "../types/index.d.ts";
 
 interface CupcakeProps {
-  data: Cupcake;
+  data:  Cupcake;
 }
 
 function Cupcake({ data }: CupcakeProps) {
