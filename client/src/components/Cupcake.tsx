@@ -1,6 +1,6 @@
 import "./Cupcake.css";
 
-interface CupcakeProps {
+export interface CupcakeProps {
   data: Cupcake;
 }
 
