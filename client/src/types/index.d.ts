@@ -1,4 +1,4 @@
-type Cupcake = {
+export type Cupcaketype = {
   id: number;
   accessory_id: string;
   accessory: string;
@@ -7,5 +7,10 @@ type Cupcake = {
   color3: string;
   name: string;
 };
+
+export type Accessorytype = {
+  id: number,
+  name: string;
+}
 
 type CupcakeArray = Cupcake[];
