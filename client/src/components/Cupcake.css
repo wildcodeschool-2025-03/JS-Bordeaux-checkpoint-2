@@ -16,6 +16,10 @@
   filter: drop-shadow(1px 1px 1px var(--main-color));
 }
 
+.cupcake:hover {
+  animation: spin 2s linear infinite;
+}
+
 .accessory {
   --image-size: 50%;
   width: var(--image-size);
@@ -185,4 +189,20 @@ div.cupcake-name {
 
 .cupcake-name:empty {
   display: none;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.spin {
+  animation: spin 2s linear infinite;
+}
+.cupcake-item:hover {
+  transform: scale(1.05);
 }
