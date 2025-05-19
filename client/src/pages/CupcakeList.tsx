@@ -6,6 +6,8 @@ import Cupcake from "../components/Cupcake";
 
 function CupcakeList() {
   const [cupcakes, setCupcakes] = useState<Cupcake[]>([]);
+  // Step 3: get all accessories
+  const [accessories, setAccessories] = useState<string[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3310/api/cupcakes")
@@ -13,13 +15,17 @@ function CupcakeList() {
       .then((data) => {
         console.info("Cupcakes fetched:", data);
         setCupcakes(data);
+
+        // Extract unique accessories
+        const uniqueAccessories = [
+          ...new Set(data.map((cupcake: Cupcake) => cupcake.accessory)),
+        ] as string[];
+        setAccessories(uniqueAccessories);
       })
       .catch((error) => console.error("Error fetching cupcakes:", error));
   }, []);
 
   console.log("Cupcakes state:", cupcakes);
-
-  // Step 3: get all accessories
 
   // Step 5: create filter state
 
@@ -33,6 +39,11 @@ function CupcakeList() {
           <select id="cupcake-select">
             <option value="">---</option>
             {/* Step 4: add an option for each accessory */}
+            {accessories.map((accessory) => (
+              <option key={accessory} value={accessory}>
+                {accessory}
+              </option>
+            ))}
           </select>
         </label>
       </form>
