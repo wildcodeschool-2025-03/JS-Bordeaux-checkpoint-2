@@ -1,5 +1,5 @@
 /*
-Créé une fonction countLetters qui compte, dans une string donnée, le nombre de fois qu'une lettre apparait.
+  Créé une fonction countLetters qui compte, dans une string donnée, le nombre de fois qu'une lettre apparait.
 
 Exemples :
 * "" et "a" -> 0
@@ -10,8 +10,6 @@ Exemples :
 */
 
 function countLetters(givenString: string, letter: string): number {
-  // Ton code ici !
-  return 0;
+  return givenString.split(letter).length - 1;
 }
-
 export default countLetters;
