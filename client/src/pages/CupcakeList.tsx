@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import Cupcake from "../components/Cupcake";
 
 /* ************************************************************************* */
@@ -37,6 +38,17 @@ const sampleCupcakes: CupcakeArray = [
 
 function CupcakeList() {
   // Step 1: get all cupcakes
+  const [cupcakes, setCupcakes] = useState();
+
+  useEffect(() => {
+    fetch("http://localhost:3310/api/cupcakes")
+      .then((res) => res.json())
+      .then((data) => {
+        setCupcakes(data);
+      });
+  }, []);
+
+  console.info(cupcakes);
 
   // Step 3: get all accessories
 
