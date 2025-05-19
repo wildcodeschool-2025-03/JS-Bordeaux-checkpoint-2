@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import Cupcake from "../components/Cupcake";
 
 /* ************************************************************************* */
@@ -78,12 +79,15 @@ function CupcakeList() {
           </select>
         </label>
       </form>
+
       <ul className="cupcake-list" id="cupcake-list">
         {/* Step 2: repeat this block for each cupcake */}
         {/* Step 5: filter cupcakes before repeating */}
         {filteredCupCakes.map((cupcake) => (
           <li className="cupcake-item" key={cupcake.id}>
-            <Cupcake key={cupcake.id} data={cupcake} />
+            <Link to={`/cupcakes/:${cupcake.id}`} state={{ cupcake }}>
+              <Cupcake key={cupcake.id} data={cupcake} />
+            </Link>
           </li>
         ))}
         {/* end of block */}

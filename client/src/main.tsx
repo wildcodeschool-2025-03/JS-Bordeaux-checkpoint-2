@@ -6,6 +6,7 @@ import { RouterProvider, createBrowserRouter } from "react-router";
 
 import App from "./App";
 
+import CupcakeDetails from "./pages/CupcakeDetails";
 import CupcakeList from "./pages/CupcakeList";
 import Home from "./pages/Home";
 import Instructions from "./pages/Instructions";
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/cupcakes",
         element: <CupcakeList />,
+      },
+      {
+        path: "/cupcakes/:id",
+        element: <CupcakeDetails />,
       },
     ],
   },
